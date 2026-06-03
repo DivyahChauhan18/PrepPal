@@ -162,13 +162,12 @@ Generate 8-10 questions specific to the role. difficulty: easy, medium, or hard.
     try {
       const res = await fetch("/api/v1/messages", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-api-key":"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" , "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
+        headers: { "Content-Type": "application/json", "x-api-key":"YOUR_API_KEY_HERE" , "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
         body: JSON.stringify({ model: "claude-sonnet-4-5", max_tokens: 4000, messages: [{ role: "user", content: prompt }] }),
       });
       if (!res.ok) { setError(`Error ${res.status}`); setLoading(false); return; }
       const data = await res.json();
       const raw = data.content?.map((i) => i.text || "").join("") || "";
-      const clean = raw.replace(/`{3}json|`{3}/g, "").trim();
       const jsonMatch = raw.match(/\[[\s\S]*\]/);
       if (!jsonMatch) { setError(`No JSON found. Raw response: ${raw.slice(0, 200)}`); setLoading(false); return; }
       setQuestions(JSON.parse(jsonMatch[0]));
@@ -190,7 +189,7 @@ Return ONLY valid JSON: {"score":7,"verdict":"...","strengths":["..."],"improvem
     try {
       const res = await fetch("/api/v1/messages", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-api-key": "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" , "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
+        headers: { "Content-Type": "application/json", "x-api-key": "YOUR_API_KEY_HERE" , "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
         body: JSON.stringify({ model: "claude-sonnet-4-5", max_tokens: 1000, messages: [{ role: "user", content: prompt }] }),
       });
       if (!res.ok) { setFeedbackLoading(false); return; }
