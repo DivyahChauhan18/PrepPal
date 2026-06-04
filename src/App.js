@@ -162,7 +162,7 @@ Generate 8-10 questions specific to the role. difficulty: easy, medium, or hard.
     try {
       const res = await fetch("/api/v1/messages", {
         method: "POST",
-        headers: { "Content-Type": "application/json", "x-api-key": process.env.REACT_APP_API_KEY" , "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
+        headers: { "Content-Type": "application/json", "x-api-key": process.env.REACT_APP_API_KEY, "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
         body: JSON.stringify({ model: "claude-sonnet-4-5", max_tokens: 4000, messages: [{ role: "user", content: prompt }] }),
       });
       if (!res.ok) { setError(`Error ${res.status}`); setLoading(false); return; }
