@@ -52,7 +52,6 @@ const QUESTION_TYPES = [
 ];
 
 function scoreColor(s) { return s >= 7 ? C.sage : s >= 5 ? C.amber : C.crimson; }
-function scoreGlow(s)  { return s >= 7 ? C.sageDim : s >= 5 ? C.amberDim : C.crimsonDim; }
 function diffColor(d)  { return d === "easy" ? C.sage : d === "hard" ? C.crimson : C.amber; }
 function diffBorder(d) { return d === "easy" ? C.sageBorder : d === "hard" ? C.crimsonBorder : C.amberBorder; }
 function diffBg(d)     { return d === "easy" ? C.sageDim : d === "hard" ? C.crimsonDim : C.amberDim; }
