@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /* ═══════════════════════════════════════════════════════════
@@ -353,14 +353,12 @@ export default function PrepPal() {
   const [practiceQ, setPracticeQ]         = useState(null);
   const [recording, setRecording]         = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
-  const [mounted, setMounted]             = useState(false);
 
   const recognitionRef     = useRef(null);
   const shouldRecordRef    = useRef(false);
   const finalTranscriptRef = useRef("");
   const timerRef           = useRef(null);
 
-  useEffect(() => { setTimeout(() => setMounted(true), 80); }, []);
   useEffect(() => {
     return () => {
       shouldRecordRef.current = false;
