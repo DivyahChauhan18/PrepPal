@@ -179,7 +179,7 @@ export default function PrepPal() {
   const [mockMode,setMockMode]             = useState(false);
   const [mockIndex,setMockIndex]           = useState(0);
   const [mockCountdown,setMockCountdown]   = useState(null);
-  const [mockComplete,setMockComplete]     = useState(false);
+  const [mockComplete,setMockComplete]     = useState(false); // eslint-disable-line no-unused-vars
   const [mockAnswers,setMockAnswers]       = useState([]);
 
   const recognitionRef     = useRef(null);
